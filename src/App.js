@@ -34,14 +34,11 @@ function App() {
           <Alert alert = {alert}/>
           <div className="container">
             <Switch>
-              <Route exact path="/">
-                <Home showAlert={showAlert} />
-              </Route>
-              <Route exact path="/about">
-                <About />
-              </Route>
               <Route exact path="/login" >
                 <Login showAlert={showAlert}/>
+              </Route>
+              <Route exact path="/">
+                <Home showAlert={showAlert} />
               </Route>
               <Route exact path="/signup" >
                 <Signup showAlert={showAlert}/>

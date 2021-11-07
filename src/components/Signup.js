@@ -8,7 +8,7 @@ const Signup = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const {name, email, password} = credentials;
-        const response = await fetch("https://e-notes-production.up.railway.app//api/auth/createuser", {
+        const response = await fetch("https://localhost:5000/api/auth/createuser", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
