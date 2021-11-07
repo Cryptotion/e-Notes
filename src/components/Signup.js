@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
+import loginImg from "../login.svg";
 
 const Signup = (props) => {
     const [credentials, setCredentials] = useState({name: "", email: "", password:"", cpassword: ""})
@@ -33,26 +34,37 @@ const Signup = (props) => {
 
     return (
         <div className="container mt-3">
-            <h2>Create an Account to use iNotebook</h2>
             <form onSubmit={handleSubmit}>
-                <div className="my-3">
-                    <label htmlFor="name" className="form-label">Name</label>
-                    <input type="text" className="form-control" id="name" name="name" onChange={onChange} aria-describedby="emailHelp" />
+            
+            <div className="base-container" ref={props.containerRef} >
+                <div className="header">Register</div>
+                <div className="content">
+                    <div className="image">
+                        <img src= {loginImg}  />
+                    </div>
+                    <div className="form">
+                        <div className="form-group">
+                            <label htmlFor="username">Name</label>
+                            <input type="text" id="name" name="name" onChange={onChange} aria-describedby="emailHelp" placeholder="name" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="email">Email</label>
+                            <input type="email" id="email" name="email"  onChange={onChange} aria-describedby="emailHelp"  placeholder="email" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="password">Password</label>
+                            <input type="password" id="password" name="password"  onChange={onChange} minLength={5} required placeholder="password" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="password">Confirm Password</label>
+                            <input type="password" id="cpassword" name="cpassword"  onChange={onChange} minLength={5} required placeholder="confirm password" />
+                        </div>
+                    </div>
                 </div>
-                <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email address</label>
-                    <input type="email" className="form-control" id="email" name="email"  onChange={onChange} aria-describedby="emailHelp" />
-                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                <div className="footer">
+                    <button type="submit" className="btn">Register</button>
                 </div>
-                <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="password" name="password"  onChange={onChange} minLength={5} required />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="cpassword" className="form-label">Confirm Password</label>
-                    <input type="password" className="form-control" id="cpassword" name="cpassword"  onChange={onChange} minLength={5} required />
-                </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+            </div>
             </form>
         </div>
     )
