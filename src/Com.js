@@ -20,7 +20,7 @@ class Com extends React.Component {
   changeState() {
     const { isLogginActive } = this.state;
 
-    if (isLogginActive) {
+    if (isLogginActive) { 
       this.rightSide.classList.remove("right");
       this.rightSide.classList.add("left");
     } else {
