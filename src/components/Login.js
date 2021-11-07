@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import loginImg from "../login.svg";
+import './style.css'
 
 const Login = (props) => {
     const [credentials, setCredentials] = useState({email: "", password:""})
@@ -35,19 +37,28 @@ const Login = (props) => {
 
     return (
         <div className="mt-3">
-            <h2 >Login to continue to iNotebook</h2>
             <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email address</label>
-                    <input type="email" className="form-control" value={credentials.email} onChange={onChange} id="email" name="email" aria-describedby="emailHelp" />
-                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+            <div className="base-container" >
+                <div className="header">Login</div>
+                <div className="content">
+                    <div className="image">
+                        <img src= {loginImg}  />
+                    </div>
+                    <div className="form">
+                        <div className="form-group">
+                            <label htmlFor="username">Email</label>
+                            <input type="email" value={credentials.email} onChange={onChange} id="email" name="email" aria-describedby="emailHelp" placeholder="username" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="password">Password</label>
+                            <input type="password" value={credentials.password} onChange={onChange} id="password" name="password" placeholder="password" />
+                        </div>
+                    </div>
                 </div>
-                <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" className="form-control" value={credentials.password} onChange={onChange} id="password" name="password" />
+                <div className="footer">
+                    <button type="submit" className="btn">Login</button>
                 </div>
-
-                <button type="submit" className="btn btn-primary" >Submit</button>
+            </div>
             </form>
         </div>
     )
